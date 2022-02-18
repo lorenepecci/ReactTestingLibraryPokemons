@@ -1,12 +1,11 @@
 /* test about About Pokédex */
 import { screen } from '@testing-library/react';
 import React from 'react';
-import App from '../App';
+import About from '../components/About';
 import renderWithRouter from './renderWithRouter';
 
 beforeEach(() => {
-  const { history } = renderWithRouter(<App />);
-  history.push('/about');
+  renderWithRouter(<About />);
 });
 
 describe('testando o About ', () => {
@@ -20,8 +19,6 @@ describe('testando o About ', () => {
   });
 
   test('se contem dois paragrafos ', () => {
-    /*  const paragrafos = screen.queryByAllRole('p'); */
-
     const textPokemon = screen.getByText(/application simulates/i);
     expect(textPokemon).toBeInTheDocument();
     const textPokemon2 = screen.getByText(/for each one of them/i);
