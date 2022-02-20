@@ -22,7 +22,7 @@ describe('testando o App ', () => {
     userEvent.click(checkbox);
     history.push('/favorites');
     const text = screen.getByText(/More details/i);
-    expect(text).not.toBeInTheDocument();
+    expect(text).toBeInTheDocument();
   });
   /* ir na home, clicar no link more details, clicar no ckeckbox com o text pokemom favoritado
   mudar pra page favorites , identificar o link more detatails  */
