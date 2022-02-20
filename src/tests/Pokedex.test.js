@@ -27,7 +27,7 @@ beforeEach(() => {
   renderWithRouter(<App />);
 });
 
-test('na home temos h2  `', () => {
+test(' h2  Encountered pokémons`', () => {
   const text = screen.getByRole('heading',
     {
       level: 2,
@@ -35,7 +35,7 @@ test('na home temos h2  `', () => {
     });
   expect(text).toBeInTheDocument();
 });
-test('ao clicar em prox pokemon,', () => {
+test('ao clicar em prox pokemon imprimir o prox', () => {
   const buttonProx = screen.getByRole('button', {
     name: /próximo pokémon/i,
   });
@@ -52,8 +52,11 @@ test('teste se tem os botoes de filtro', () => {
     });
     expect(buttonThere).toBeInTheDocument();
   });
+  const findButtons = screen.getAllByTestId('pokemon-type-button');
+  const allButtons = 7;
+  expect(findButtons.length).toEqual(allButtons);
 });
-test('mostrar pokedex só do tipo ', () => {
+test('mostrar pokedex só do tipo filtrado', () => {
   console.log(funcaoListaTypes());
   funcaoListaTypes().forEach((typeName) => {
     const buttonType = screen.getByRole('button',
